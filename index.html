@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!-- Tienda generada con Harvys, asistente de e-commerce creado por el Profesor Harvey Sanabria -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eve Beauty &amp; Style — Belleza y estilo a tu manera.</title>
+<meta name="description" content="Maquillaje, perfumes, ropa interior, pijamas y ropa para hombre y mujer, con anchetas de belleza personalizadas.">
+<meta name="generator" content="Harvys — asistente de e-commerce del Profesor Harvey Sanabria">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="anim-media tarj-elevadas modo-claro">
+
+<!-- MODAL PAGO -->
+<div class="modal-overlay" id="modal-pago" onclick="modalClickFuera(event)">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-head"><h3>Confirmar pago</h3><button class="modal-cerrar" onclick="cerrarModal()" aria-label="Cerrar">✕</button></div>
+    <div class="modal-body">
+      <div class="modal-total"><span class="tl">Total a pagar</span><span class="tm" id="modal-total-monto">$0</span></div>
+      <div class="pago-metodos" id="pago-metodos"></div>
+      <div class="pago-datos" id="pago-datos">
+        <div class="pd-label">Transferir a este número</div>
+        <div class="pd-numero" id="pd-numero"></div>
+        <div class="pd-nombre" id="pd-nombre"></div>
+        <button class="btn-copiar" onclick="copiarNumero()">📋 Copiar número</button>
+      </div>
+      <div class="pasos">
+        <div class="paso"><div class="paso-num">1</div><div class="paso-txt" id="paso-1"></div></div>
+        <div class="paso"><div class="paso-num">2</div><div class="paso-txt">Toca <strong>"Confirmar y enviar"</strong> — se abre WhatsApp con tu pedido</div></div>
+        <div class="paso"><div class="paso-num">3</div><div class="paso-txt" id="paso-3"></div></div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <a href="#" target="_blank" rel="noopener" class="btn-wsp" onclick="return prepararWsp(this)">✅ Confirmar y enviar por WhatsApp</a>
+      <button class="btn-seguir" onclick="cerrarModal()">← Seguir comprando</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay" onclick="cerrarCarrito()"></div>
+
+<button class="carrito-fab" onclick="toggleCarrito()" id="fab" aria-label="Abrir carrito">🛒<span class="carrito-badge" id="badge">0</span></button>
+
+<div class="carrito-panel" id="panel-carrito">
+  <div class="panel-header"><h3>Tus favoritos en el carrito</h3><button class="btn-cerrar" onclick="cerrarCarrito()" aria-label="Cerrar carrito">✕</button></div>
+  <ul id="lista-carrito"></ul>
+  <div class="panel-footer">
+    <div class="total-row"><span class="total-lbl">Total</span><span class="total-monto" id="total">$0</span></div>
+    <div class="panel-btns"><button class="btn-vaciar" onclick="vaciarCarrito()">Vaciar</button><button class="btn-pagar" onclick="pagar()">Enviar pedido por WhatsApp</button></div>
+  </div>
+</div>
+
+<header class="hero hero-centrado">
+  <div class="hero-bg efecto-puntos"></div>
+  <div class="hero-content">
+    <div>
+      
+      <div class="hero-badge">Belleza y estilo · Bogotá</div>
+      <h1>Eve<span>Beauty &amp; Style</span></h1>
+      <p class="hero-sub">Belleza, estilo y detalles que enamoran. Descubre maquillaje y perfumes para ella, para él y para compartir, junto con hermosas creaciones hechas a mano, tejidos en crochet y flores para regalar y sorprender.</p>
+      <a href="#catalogo" class="btn-hero">Explorar productos
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <div class="hero-stats"><div class="hero-stat"><div class="num">3–5 días</div><div class="lbl">Entrega estimada</div></div><div class="hero-stat"><div class="num">Bogotá</div><div class="lbl">Contraentrega disponible</div></div></div>
+    </div>
+    </div>
+  <div class="hero-scroll"><div></div></div>
+</header>
+
+<section class="banner-sec">
+  <div class="banner-glow"></div>
+  <div class="banner-content">
+    <div class="sec-label">Conoce Eve</div>
+    <h2>Tu belleza, <em>tu estilo</em></h2>
+    <p>Maquillaje, perfumes, ropa y anchetas personalizadas para ti o para regalar. 🎁💄
+
+📲 Consulta productos y disponibilidad por WhatsApp.
+🚚 Domicilios en Bogotá, envíos nacionales con costo según destino y recogida coordinada.
+
+💕 Belleza a tu manera.</p>
+    <div class="banner-chips"><span class="chip">Contraentrega en Bogotá</span><span class="chip">Entrega estimada: 3–5 días</span><span class="chip">Envíos nacionales</span><span class="chip">Recogida por coordinar</span></div>
+  </div>
+</section>
+<section class="seccion-personalizada" id="custom-detalles-artesanales">
+<section style="padding:28px 24px;background:var(--bg2);text-align:center"><a href="https://wa.me/573125962421?text=Hola%20Eve%20Beauty%20%26%20Style%2C%20quiero%20cotizar%20un%20detalle%20personalizado%20o%20hecho%20a%20mano." target="_blank" rel="noopener noreferrer" style="display:inline-block;max-width:100%;box-sizing:border-box;padding:16px 24px;background:var(--p);color:var(--p-txt);border-radius:var(--r);font-family:var(--fb);font-weight:600;text-decoration:none;line-height:1.5">🎁 ¿Quieres un detalle personalizado o hecho a mano? Cotízalo aquí</a><p style="max-width:680px;margin:16px auto 0;color:var(--tx2);font-family:var(--fb);line-height:1.7">Creamos detalles personalizados y hechos a mano para sorprender. 💝 Cuéntanos qué imaginas y juntos hacemos de tu idea un regalo especial.</p></section>
+</section>
+
+<div class="filtros-wrap" id="filtros-bar">
+  <div class="busqueda-wrap">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/></svg>
+    <input type="text" id="buscador" placeholder="Buscar producto..." oninput="filtrarBusqueda()">
+  </div>
+</div>
+<section class="catalogo-wrap" id="catalogo">
+  <div class="catalogo-header">
+    <div><div class="sec-label">Descubre tus favoritos</div><div class="sec-title">Maquillaje, perfumes y detalles</div></div>
+    <div class="catalogo-count" id="cont-count"></div>
+  </div>
+  <div id="productos"></div>
+</section>
+
+<section class="beneficios-sec" id="beneficios">
+  <div class="sec-centro"><div class="sec-label">Compra con confianza</div><div class="sec-title">Lo que encuentras en Eve</div></div>
+  <div class="beneficios-grid">
+    <div class="bcard"><div class="bcard-icono">✨</div><h3>Marcas reconocidas</h3><p>El negocio ofrece productos de Esika, Cyzone, Leonisa y Yanbal. Consulta las referencias disponibles.</p></div><div class="bcard"><div class="bcard-icono">🚚</div><h3>Hasta la puerta de tu casa</h3><p>Domicilios en toda Bogotá y envíos nacionales. Entrega estimada de 3 a 5 días; costo según destino.</p></div><div class="bcard"><div class="bcard-icono">💜</div><h3>Opciones para ella y para él</h3><p>Maquillaje, perfumes, moda y anchetas de belleza personalizadas en un mismo negocio.</p></div><div class="bcard"><div class="bcard-icono">🤝</div><h3>Contraentrega en Bogotá</h3><p>Paga en efectivo a Evelyn al recibir tu pedido. Sin costo adicional por esta modalidad; mínimo del pedido por confirmar.</p></div>
+  </div>
+</section>
+
+<section class="recs-sec">
+  <div class="sec-label">Explora el catálogo</div>
+  <div class="sec-title">Belleza y detalles para descubrir</div>
+  <div class="recs-grid" id="recomendados"></div>
+</section>
+
+<section class="top-sec">
+  <div class="sec-label">Favoritos de la comunidad</div>
+  <div class="sec-title">Los más votados de Eve</div>
+  <div class="top-grid" id="top"></div>
+</section>
+
+<section class="duelo-sec">
+  <div class="sec-label">Tu estilo cuenta</div>
+  <div class="sec-title">¿Cuál va más contigo?</div>
+  <div class="duelo-arena" id="duelo"></div>
+  <p class="duelo-info">Elige tu favorito y ayúdalo a subir en el ranking de la tienda.</p>
+</section>
+<section class="seccion-personalizada" id="custom-atencion">
+<section style="padding:64px 24px;background:var(--bg2);color:var(--tx)"><div style="max-width:960px;margin:auto;display:flex;flex-direction:column;align-items:flex-start;gap:24px"><p class="sec-label" style="margin:0;line-height:1.6">Estamos para escucharte</p><h2 class="sec-title" style="margin:0;line-height:1.3">Sugerencias, solicitudes y reclamos</h2><p style="max-width:720px;margin:0;color:var(--tx2);line-height:1.9">Comunícate con Evelyn por WhatsApp para compartir una petición, queja, reclamo o sugerencia sobre tu compra. Cuéntanos qué ocurrió y, si aplica, la referencia de tu pedido.</p><a href="https://wa.me/573125962421?text=Hola%20Eve%2C%20quiero%20enviar%20una%20petici%C3%B3n%2C%20queja%2C%20reclamo%20o%20sugerencia." target="_blank" rel="noopener noreferrer" style="display:inline-block;box-sizing:border-box;max-width:100%;margin-top:8px;padding:16px 24px;background:var(--p);color:var(--p-txt);border-radius:var(--r);text-decoration:none;line-height:1.6">Contactar por WhatsApp</a><p style="margin:8px 0 0;line-height:1.8;overflow-wrap:anywhere"><a href="https://www.instagram.com/evebeautyandstyle?utm_source=qr&amp;dlrf=cmN4c3kzdWsybDNn" target="_blank" rel="noopener noreferrer" style="color:var(--p)">Síguenos en Instagram: @evebeautyandstyle</a></p></div></section>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-marca"><h3>Eve Beauty &amp; Style</h3><p>Eve Beauty &amp; Style · Bogotá. Maquillaje, perfumes y opciones de moda y regalos personalizados. Consulta disponibilidad y entregas por WhatsApp.</p></div>
+    <div class="footer-col"><h4>Contacto</h4><ul><li><a href="https://wa.me/573125962421" target="_blank" rel="noopener">WhatsApp: +57 3125962421</a></li><li><a href="https://www.instagram.com/evebeautyandstyle?utm_source=qr&amp;dlrf=cmN4c3kzdWsybDNn" target="_blank" rel="noopener">Instagram: @evebeautyandstyle?utm_source=qr&amp;dlrf=cmN4c3kzdWsybDNn</a></li><li>📍 Bogotá</li></ul></div>
+    <div class="footer-col"><h4>Pagos</h4><ul><li>Efectivo</li><li>Transferencia</li><li>Nequi</li><li>Daviplata</li></ul></div>
+    <div class="footer-col"><h4>Categorías</h4><ul><li>Maquillaje</li><li>Perfumes (mujer)</li><li>Perfumes (hombre)</li><li>Detalles hechos a mano</li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Eve Beauty &amp; Style — Todos los derechos reservados</span>
+    <span>Belleza y estilo a tu manera.</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
